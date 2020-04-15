@@ -1,13 +1,22 @@
+let bubble = document.getElementById('bubble');
+let downCounter = 0;
+let upCounter = 0;
+let leftCounter = 0;
+let rightCounter = 0;
+
 /*Button Controller*/
 document.addEventListener('keydown', logKey);
-
 function logKey(e) {
     //   log.textContent += ` ${e.code}`;
     if (e.keyCode == 38) {
         console.log('up');
+        upCounter++;
+        bubble.style = 'margin-top: ' + (downCounter - upCounter) + 'px';
     }
     if (e.keyCode == 40) {
-        console.log('down');
+        downCounter++;
+        console.log('pressing down now', downCounter);
+        bubble.style = 'margin-top:' + (downCounter - upCounter) + 'px';
     }
     if (e.keyCode == 37) {
         console.log('left key');
